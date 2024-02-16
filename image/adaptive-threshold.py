@@ -2,6 +2,7 @@ import cv2
 import os
 
 img = cv2.imread(os.path.join('.', 'assets', 'futbol_pibes.png'))
+# img = cv2.imread(os.path.join('.', 'assets', 'futbol_pibes.png'))
 resized_img = cv2.resize(img, (683, 384))
 cropped_img = resized_img[30:350, 0:683]
 
