@@ -4,7 +4,7 @@ import os
 img = cv2.imread(os.path.join('.', 'assets', 'zer_3_resized.jpg'))
 
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
+# todo lo mayor a 80 se pinta con 255, todo lo menor a 80 se pinta con 0
 ret, thresh = cv2.threshold(img_gray, 80, 255, cv2.THRESH_BINARY)
 
 thresh = cv2.blur(thresh, (7, 7))
