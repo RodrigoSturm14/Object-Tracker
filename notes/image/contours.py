@@ -13,8 +13,15 @@ contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_S
 for cnt in contours:
   # limitar las areas blancas q se van a iterar
   if cv2.contourArea(cnt) > 100:
+
+    # dibujar contorno de las secciones blancas
     # cv2.drawContours(img, cnt, -1, (200, 0, 0), 2)
 
+    # encontrar centro del area y dibujar circulo
+    (x0, y0), radius = cv2.minEnclosingCircle(cnt)
+    cv2.circle(img, (int(x0), int(y0)), 3, (0, 200, 0), -1)
+
+    # encontrar limites (coordenadas) del area y dibujar rectangulo
     x1, y1, w, h = cv2.boundingRect(cnt)
     cv2.rectangle(img, (x1, y1), (x1 + w, y1 + h), (200, 0, 0), 2)
 
